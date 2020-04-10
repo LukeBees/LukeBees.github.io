@@ -1,9 +1,9 @@
 
 let allChips = new Array(6);
-for(var i = 0; i < allChips.length; i++)
+for(let i = 0; i < allChips.length; i++)
   {
 	  allChips[i] = new Array(7);
-	  for(var j = 0; j < 7; j++)
+	  for(let j = 0; j < 7; j++)
 	  {
 		  allChips[i][j] = 0;
 	  }
@@ -11,9 +11,9 @@ for(var i = 0; i < allChips.length; i++)
 
 function resetBoard()
 {
-  for(var i = 0; i < allChips.length; i++)
+  for(let i = 0; i < allChips.length; i++)
   {
-	  for(var j = 0; j < 7; j++)
+	  for(let j = 0; j < 7; j++)
 	  {
 		  allChips[i][j] = 0;
 	  }  
@@ -22,23 +22,33 @@ function resetBoard()
 
 function connectfour() 
 {
-  let isWin = false;  let t = 0;
+  let isWin = false;  
+  let t = 0;
   
   while(!isWin || t < 49)
   {
     if(t % 2 == 0) //red plays
     {
       let y;
-      add(y, 1)
       if(isValid(y))
       {
-        
+        add(y, 1);
         t++;
       }
     }
     else //t % 2 == 1, yellow plays
     {
       let y;
+      if(isValid(y))
+      {
+        add(y, 2);
+        t++;
+      }
+    }
+	  
+    if(t > 7) //a minimum of seven turns overall is needed for the first player to add four chips, so only then does the program check for winners
+    {
+      isWin = checkWin();
     }
   }
   
@@ -46,9 +56,44 @@ function connectfour()
      
 function add(c, s) //c represents the column (0-6), s represents the side
 {
-  allChips[][c];
+  let r = 5;
+  while(allChips[r][c] != 0)
+  {
+	r--;
+  }
+  allChips[r][c] = s;
 }
 
+function checkWin()
+{
+	
+}
+
+function checkRow(row)
+{
+	let tf = false;
+	for(let i = 0; i < 7; i++)
+	{
+		if(allChips[row][i] != 0)
+		{
+		   tf = true;
+		}
+	}
+	return(tf);
+}
+
+function checkCol(col)
+{
+	let tf = false;
+	for(let i = 0; i < 6; i++)
+	{
+		if(allChips[i][col] != 0)
+		{
+		   tf = true;
+		}
+	}
+	return(tf);
+}
 
 function isValid(c) //c represents the column where a spot is being added
 {
