@@ -1,4 +1,7 @@
 
+const canvas = document.getElementbyId('canvas');
+const ctx = canvas.getContext('2d');
+
 let allChips = new Array(6);
 for(let i = 0; i < allChips.length; i++)
   {
@@ -7,6 +10,7 @@ for(let i = 0; i < allChips.length; i++)
 	  {
 		  allChips[i][j] = 0;
 	  }
+	  ctx.strokeRect(10,10,10,10);
   }
 
 function resetBoard()
