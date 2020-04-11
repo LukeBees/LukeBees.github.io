@@ -1,6 +1,6 @@
 
-const canvas = document.getElementbyId('canvas');
-const ctx = canvas.getContext('2d');
+var canvas = document.getElementbyId('canvas');
+var ctx = canvas.getContext('2d');
 
 let allChips = new Array(6);
 for(let i = 0; i < allChips.length; i++)
