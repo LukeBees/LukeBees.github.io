@@ -10,7 +10,7 @@ for(let i = 0; i < allChips.length; i++)
 	  {
 		  allChips[i][j] = 0;
 	  }
-	  ctx.strokeRect(10,10,10,10);
+	  ctx.strokeRect(10,10,50,50);
   }
 
 function resetBoard()
