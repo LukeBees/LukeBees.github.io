@@ -122,8 +122,7 @@ playerbutton.addEventListener("click", (e) => {
 			}
 			else
 			{
-				if(winner == 1)
-				{
+				if(winner == 1)				{
 				   playertext.innerText = "Red wins! ";
 				}
 				else //winner == 2
@@ -139,7 +138,12 @@ playerbutton.addEventListener("click", (e) => {
 
 function checkWin()
 {
-	//check horizontally for fours
+	return(checkWinHorizontal()||checkWinVertical());
+}
+
+
+function checkWinHorizontal()
+{
 	for(let row = 5; row >= 0; row--)
 	{
 		let sum = 0;
@@ -167,9 +171,12 @@ function checkWin()
 		{
 			row = -1; //
 		}
-	}
-	
-	
+	}	
+	return(false);
+}
+
+function checkWinVertical()
+{
 	//check vertically
 	for(let col = 0; col < 7; col++)
 	{
@@ -203,13 +210,14 @@ function checkWin()
 			}
 		}
 	}
-	
-	
-	
-	
-	
 	return(false);
 }
+
+function checkWinDiagonal()
+{
+
+}
+
 
 //complete, determine whether a chip can be added to the column the user specifies
 function isValid(c) //c represents the column where a spot is being added
