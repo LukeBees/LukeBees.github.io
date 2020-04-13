@@ -291,6 +291,7 @@ function isValid(c) //c represents the column where a spot is being added
 {
   if(c < 1 || c > 7)
   {
+    playertext.innerText = playertext.innerText + " (please use numbers between 1 and 7)";
     return(false);
   }  
   else
@@ -307,6 +308,7 @@ function isValid(c) //c represents the column where a spot is being added
         return(true);
       }
     }
+    playertext.innerText = playertext.innerText + " (cannot add anymore pieces to column)";
     return(false);
   }
 }
