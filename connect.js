@@ -57,7 +57,7 @@ function connectfour()
 	let isWin = false;  
 	let t = 0;
   
-	while(!isWin || t < 49)
+	if(!isWin && t < 49)
 	{
 	
 	drawBoard();
