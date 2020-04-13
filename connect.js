@@ -138,7 +138,8 @@ playerbutton.addEventListener("click", (e) => {
 
 function checkWin()
 {
-	return(checkWinHorizontal()||checkWinVertical()||checkWinRightDiag()||checkWinLeftDiag());
+	return(checkWinHorizontal()||checkWinVertical());
+	//return(checkWinHorizontal()||checkWinVertical()||checkWinRightDiag()||checkWinLeftDiag());
 }
 
 
@@ -223,9 +224,9 @@ function checkWinRightDiag()
 		let curCol = cols[i];
 		let currentChip = allChips[curCol][curRow];
 		let line = 0;
-		while(curRow >= 0 && curCol <= 6)
+		while(curRow > 0 && curCol < 6)
 		{
-			if(currentChip == allChips[curCol+1][curRow+1] && currentChip != 0)
+			if(currentChip == allChips[curCol+1][curRow-1] && currentChip != 0)
 			{
 				line++
 			}
@@ -258,7 +259,7 @@ function checkWinLeftDiag()
 		let curCol = cols[i];
 		let currentChip = allChips[curCol][curRow];
 		let line = 0;
-		while(curRow >= 0 && curCol >= 0)
+		while(curRow > 0 && curCol > 0)
 		{
 			if(currentChip == allChips[curCol-1][curRow-1] && currentChip != 0)
 			{
