@@ -179,7 +179,7 @@ function checkWin()
 		let line = 0;
 		while(row > 0)
 		{
-			let currentChip == allChips[col][row]
+			let currentChip == allChips[col][row];
 			if(allChips[col][row-1] != currentChip)
 			{
 			   line = 0;
