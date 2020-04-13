@@ -87,7 +87,7 @@ playerbutton.addEventListener("click", (e) => {
 			let r = 5;
 			while(r >= 0)
 			{
-				if(allChips[c-1][r] != 0)
+				if(allChips[col-1][r] != 0)
 				{
 					r--;
 				}
