@@ -122,6 +122,10 @@ playerbutton.addEventListener("click", (e) => {
 
 });
 
+function checkWin()
+{
+	return(false);
+}
 
 //complete, determine whether a chip can be added to the column the user specifies
 function isValid(c) //c represents the column where a spot is being added
