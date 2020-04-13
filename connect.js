@@ -32,7 +32,9 @@ function drawBoard()
 			if(allChips[i][j] == 0)
 			{
 				ctx.beginPath();
+				ctx.fillStyle = 'white';
 				ctx.arc((40+50*i), (40+50*j), 20, 0, 2 * Math.PI);
+				ctx.fill();
 				ctx.stroke();
 			}
 			else if(allChips[i][j] == 1)
