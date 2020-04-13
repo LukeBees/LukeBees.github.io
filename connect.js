@@ -159,7 +159,7 @@ function checkWinHorizontal()
 			}
 			else //currentChip == allChips[col-1][row] && currentChip != 0
 			{
-			   line++;
+				line++;
 			}
 			   
 			if(line >= 3)
@@ -184,9 +184,9 @@ function checkWinVertical()
 	{
 		let row = 5;
 		let line = 0;
+		let currentChip = allChips[col][row];
 		while(row > 0 && currentChip != 0)
 		{
-			let currentChip = allChips[col][row];
 			if(allChips[col][row-1] != currentChip)
 			{
 			   line = 0;
@@ -202,6 +202,7 @@ function checkWinVertical()
 			}
 			
 			row--;
+			currentChip = allChips[col][row];
 			   
 			if(line >= 3)
 			{
