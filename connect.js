@@ -243,6 +243,7 @@ function checkWinRightDiag()
 			}
 			curRow--;
 			curCol++;
+			currentChip = allChips[curCol][curRow];
 		}
 	}
 	return(false);
@@ -279,6 +280,7 @@ function checkWinLeftDiag()
 			}
 			curRow--;
 			curCol--;
+			currentChip = allChips[curCol][curRow];
 		}
 	}
 	return(false);
