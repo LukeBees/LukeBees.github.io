@@ -138,7 +138,7 @@ playerbutton.addEventListener("click", (e) => {
 function checkWin()
 {
 	//check horizontally for fours
-	for(let row = 6; row >= 0; row--)
+	for(let row = 5; row >= 0; row--)
 	{
 		let sum = 0;
 		let line = 0;
