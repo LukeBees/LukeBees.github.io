@@ -91,6 +91,8 @@ playerbutton.addEventListener("click", (e) => {
 			}
 			allChips[col-1][r] = side;
 	
+			drawBoard();
+			
 			turns++;
 		
 			if(turns > 7)
