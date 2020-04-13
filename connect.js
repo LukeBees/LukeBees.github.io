@@ -138,7 +138,7 @@ playerbutton.addEventListener("click", (e) => {
 
 function checkWin()
 {
-	return(checkWinHorizontal()||checkWinVertical());
+	return(checkWinHorizontal()||checkWinVertical()||checkWinRightDiag()||checkWinLeftDiag());
 }
 
 
@@ -203,8 +203,6 @@ function checkWinVertical()
 			   
 			if(line == 3)
 			{
-				console.log(col);
-				console.log(row);
 				winner = allChips[col][row];
 				return(true);
 			}
@@ -213,9 +211,71 @@ function checkWinVertical()
 	return(false);
 }
 
-function checkWinDiagonal()
+function checkWinRightDiag()
 {
+	let rows = [3,4,5,5,5,5];
+	let cols = [0,0,0,1,2,3];
+	
+	for(let i = 0; i < 6; i++)
+	{
+		let curRow = r[i];
+		let curCol = c[i];
+		let currentChip = allChips[curRow][curCol];
+		let line = 0;
+		while(curRow >= 0 && curCol <= 6)
+		{
+			if(currentChip == allChips[curRow+1][curCol+1] && currentChip != 0)
+			{
+				line++
+			}
+			else
+			{
+				line = 0;
+			}
+			curRow--;
+			curCol++;
+		}
+		if(line == 3)
+		{
+			return(true);
+		}
+	}
+	return(false);
+	
+}
 
+
+function checkWinLeftDiag()
+{
+	let cols = [3,4,5,6,6,6];
+	let rows = [5,5,5,5,4,3];
+	
+	for(let i = 0; i < 6; i++)
+	{
+		let curRow = r[i];
+		let curCol = c[i];
+		let currentChip = allChips[curRow][curCol];
+		let line = 0;
+		while(curRow >= 0 && curCol >= 0)
+		{
+			if(currentChip == allChips[curRow-1][curCol-1] && currentChip != 0)
+			{
+				line++
+			}
+			else
+			{
+				line = 0;
+			}
+			curRow--;
+			curCol--;
+		}
+		if(line == 3)
+		{
+			return(true);
+		}
+	}
+	return(false);
+	
 }
 
 
