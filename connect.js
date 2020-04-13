@@ -156,6 +156,8 @@ function checkWin()
 			   
 			if(line == 4)
 			{
+				console.log(col);
+				console.log(row);
 				winner = allChips[col][row];
 				return(true);
 			}
