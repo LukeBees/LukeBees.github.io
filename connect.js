@@ -211,6 +211,7 @@ function checkWinVertical()
 	return(false);
 }
 
+//looks for pairs of four from the lower left to upper right part of the board
 function checkWinRightDiag()
 {
 	let rows = [3,4,5,5,5,5];
@@ -220,11 +221,11 @@ function checkWinRightDiag()
 	{
 		let curRow = rows[i];
 		let curCol = cols[i];
-		let currentChip = allChips[curRow][curCol];
+		let currentChip = allChips[curCol][curRow];
 		let line = 0;
 		while(curRow >= 0 && curCol <= 6)
 		{
-			if(currentChip == allChips[curRow+1][curCol+1] && currentChip != 0)
+			if(currentChip == allChips[curCol+1][curRow+1] && currentChip != 0)
 			{
 				line++
 			}
@@ -232,19 +233,20 @@ function checkWinRightDiag()
 			{
 				line = 0;
 			}
+			
+			if(line == 3)
+			{
+				return(true);
+			}
 			curRow--;
 			curCol++;
-		}
-		if(line == 3)
-		{
-			return(true);
 		}
 	}
 	return(false);
 	
 }
 
-
+//looks for pairs of four from the lower right to upper left of the board
 function checkWinLeftDiag()
 {
 	let cols = [3,4,5,6,6,6];
@@ -254,11 +256,11 @@ function checkWinLeftDiag()
 	{
 		let curRow = rows[i];
 		let curCol = cols[i];
-		let currentChip = allChips[curRow][curCol];
+		let currentChip = allChips[curCol][curRow];
 		let line = 0;
 		while(curRow >= 0 && curCol >= 0)
 		{
-			if(currentChip == allChips[curRow-1][curCol-1] && currentChip != 0)
+			if(currentChip == allChips[curCol-1][curRow-1] && currentChip != 0)
 			{
 				line++
 			}
@@ -266,12 +268,13 @@ function checkWinLeftDiag()
 			{
 				line = 0;
 			}
+			
+			if(line == 3)
+			{
+				return(true);
+			}
 			curRow--;
 			curCol--;
-		}
-		if(line == 3)
-		{
-			return(true);
 		}
 	}
 	return(false);
