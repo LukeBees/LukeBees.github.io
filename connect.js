@@ -136,10 +136,11 @@ playerbutton.addEventListener("click", (e) => {
 
 });
 
+//Checks the board vertically, horizontally, and diagonally for lines of four or more
 function checkWin()
 {
-	return(checkWinHorizontal()||checkWinVertical());
-	//return(checkWinHorizontal()||checkWinVertical()||checkWinRightDiag()||checkWinLeftDiag());
+	//return(checkWinHorizontal()||checkWinVertical());
+	return(checkWinHorizontal()||checkWinVertical()||checkWinRightDiag()||checkWinLeftDiag());
 }
 
 
@@ -161,7 +162,7 @@ function checkWinHorizontal()
 			   line++;
 			}
 			   
-			if(line == 3)
+			if(line >= 3)
 			{
 				winner = allChips[col][row];
 				return(true);
@@ -202,7 +203,7 @@ function checkWinVertical()
 			
 			row--;
 			   
-			if(line == 3)
+			if(line >= 3)
 			{
 				winner = allChips[col][row];
 				return(true);
@@ -235,7 +236,7 @@ function checkWinRightDiag()
 				line = 0;
 			}
 			
-			if(line == 3)
+			if(line >= 3)
 			{
 				return(true);
 			}
@@ -270,7 +271,7 @@ function checkWinLeftDiag()
 				line = 0;
 			}
 			
-			if(line == 3)
+			if(line >= 3)
 			{
 				return(true);
 			}
