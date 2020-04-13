@@ -83,6 +83,7 @@ playerbutton.addEventListener("click", (e) => {
 		turns = 0;
 		playertext.innerText = "Red Player, make your move";
 		side = 1;
+		isWin = false;
 	}
 	else
 	{
@@ -154,7 +155,7 @@ function checkWin()
 			   line++;
 			}
 			   
-			if(line == 4)
+			if(line == 3)
 			{
 				console.log(col);
 				console.log(row);
