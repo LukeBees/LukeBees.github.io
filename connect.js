@@ -67,9 +67,9 @@ function drawBoard()
 
 
 
-var playerbutton = document.getEntryById('b1');
-var playerinput = document.getEntryById('input'); //box in which the user enters data
-var playertext = document.getEntryById('s1');
+var playerbutton = document.getElementById('b1');
+var playerinput = document.getElementById('input'); //box in which the user enters data
+var playertext = document.getElementById('s1');
 var turns = 0;
 var side = 1;
 var isWin = false;
