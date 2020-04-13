@@ -176,7 +176,7 @@ function checkWin()
 		while(row > 0)
 		{
 			let currentChip == allChips[col][row]
-			if(allChips[col][row-1] != currentChip || currentChip == 0)
+			if(allChips[col][row-1] != currentChip)
 			{
 			   line = 0;
 			}
