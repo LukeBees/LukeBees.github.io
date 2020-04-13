@@ -2,6 +2,7 @@
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 
+//complete, initializes all values in the integer array
 var allChips = new Array(7);
 for(let i = 0; i < allChips.length; i++)
 {
@@ -12,6 +13,7 @@ for(let i = 0; i < allChips.length; i++)
 	}
 }
 
+//complete, resets all values in the integer array to zero
 function resetBoard()
 {
 	for(let i = 0; i < allChips.length; i++)
@@ -23,6 +25,7 @@ function resetBoard()
 	}
 }
 
+//complete, draws all pieces as described in integer array
 function drawBoard()
 {
 	for(let i = 0; i < 7; i++)
@@ -54,84 +57,73 @@ function drawBoard()
 	}
 }
 
-function connectfour() 
-{
-	let isWin = false;  
-	let t = 0;
-  
-	if(!isWin && t < 49)
+
+
+
+
+
+
+
+
+
+
+var playerbutton = document.getEntryById('b1');
+var playerinput = document.getEntryById('input'); //box in which the user enters data
+var playertext = document.getEntryById('s1');
+var turns = 0;
+var side = 1;
+var isWin = false;
+
+playerbutton.addEventListener("click", (e) => {
+	if(isWin || turns == 42)
 	{
+		resetBoard();
+	}
+	else
+	{
+		let col = parseInt(playerinput.value);
+		if(isValid(col)) //if the column the player enters is acceptable
+		{
+			let r = 5;
+			while(r >= 0)
+			{
+				if(allChips[c-1][r] != 0)
+				{
+					r--;
+				}
+			}
+			allChips[col-1][r] = side;
 	
-	drawBoard();
+			turns++;
 		
-	if(t % 2 == 0) //red plays
-	{
-		let y;
-		if(isValid(y))
-      		{
-        		add(y, 1);
-        		t++;
-      		}
-    	}
-    	else //t % 2 == 1, yellow plays
-    	{
-      		let y;
-      		if(isValid(y))
-      		{
-        		add(y, 2);
-        		t++;
-      		}
-   	}
-	  
-    	if(t > 7) //a minimum of seven turns overall is needed for the first player to add four chips, so only then does the program check for winners
-    	{
-      	isWin = checkWin();
-    	}
-
-  	}
-}
-     
-function add(c, s) //c represents the column (0-6), s represents the side
-{
-  let r = 5;
-  while(allChips[r][c] != 0)
-  {
-	r--;
-  }
-  allChips[r][c] = s;
-}
-
-function checkWin()
-{
-	
-}
-
-function checkRow(row)
-{
-	let tf = false;
-	for(let i = 0; i < 7; i++)
-	{
-		if(allChips[row][i] != 0)
-		{
-		   tf = true;
-		}
+			if(turns > 7)
+			{
+				isWin = checkWin();
+			}
+		
+			if(!isWin)
+			{
+				if(turns % 2 == 0)
+				{
+					playertext.innerText = "Red Player, make your move";
+					side = 1;
+				}
+				else //turns % 2 == 1
+				{
+					playertext.innerText = "Yellow Player, make your move";
+					side = 2;
+				}
+			}
+			else
+			{
+				playertext.innerText = "Press button to play again";
+			}
 	}
-	return(tf);
-}
 
-function checkCol(col)
-{
-	let tf = false;
-	for(let i = 0; i < 6; i++)
-	{
-		if(allChips[i][col] != 0)
-		{
-		   tf = true;
-		}
-	}
-	return(tf);
-}
+});
 
+
+//complete, determine whether a chip can be added to the column the user specifies
 function isValid(c) //c represents the column where a spot is being added
 {
   if(c < 1 || c > 7)
@@ -141,9 +133,9 @@ function isValid(c) //c represents the column where a spot is being added
   else
   {
     let r = 5;
-    while(r > 0)
+    while(r >= 0)
     {
-      if(allChips[r][c] != 0)
+      if(allChips[c-1][r] != 0)
       {
         r--;
       }
