@@ -184,9 +184,9 @@ function checkWinVertical()
 	{
 		let row = 5;
 		let line = 0;
-		let currentChip = allChips[col][row]
 		while(row > 0 && currentChip != 0)
 		{
+			let currentChip = allChips[col][row];
 			if(allChips[col][row-1] != currentChip)
 			{
 			   line = 0;
