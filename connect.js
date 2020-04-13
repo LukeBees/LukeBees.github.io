@@ -73,6 +73,7 @@ var playertext = document.getElementById('s1');
 var turns = 0;
 var side = 1;
 var isWin = false;
+var winner = 0;
 
 playerbutton.addEventListener("click", (e) => {
 	if(isWin || turns == 42) //reset the board in case a player wins or the board is full
@@ -119,7 +120,15 @@ playerbutton.addEventListener("click", (e) => {
 			}
 			else
 			{
-				playertext.innerText = "Press button to play again";
+				if(winner == 1)
+				{
+				   playertext.innerText = "Red wins! ";
+				}
+				else //winner == 2
+				{
+				   playertext.innerText = "Yellow wins! ";
+				}
+				playertext.innerText = playertext.innerText + "Press button to play again";
 			}
 		}
 	}
@@ -128,6 +137,38 @@ playerbutton.addEventListener("click", (e) => {
 
 function checkWin()
 {
+	//check horizontally for fours
+	for(let r = 6; r >= 0; r--)
+	{
+		let s = 0;
+		let r = 0;
+		for(let c = 1; c < 7; c++)
+		{
+			if(allChips[c][r] != allChips[c-1][r])
+			{
+			   r = 0;
+			}
+			else
+			{
+			   r++;
+			}
+			   
+			if(r == 4)
+			{
+				winner = allChips[][];
+				return(true);
+			}
+			s = s + allChips[c][r];
+		}
+		if(s == 0)
+		{
+			r = -1; //
+		}
+	}
+	
+	
+	
+	
 	return(false);
 }
 
