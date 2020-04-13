@@ -138,31 +138,58 @@ playerbutton.addEventListener("click", (e) => {
 function checkWin()
 {
 	//check horizontally for fours
-	for(let r = 6; r >= 0; r--)
+	for(let row = 6; row >= 0; row--)
 	{
-		let s = 0;
-		let r = 0;
-		for(let c = 1; c < 7; c++)
+		let sum = 0;
+		let line = 0;
+		for(let col = 1; col < 7; col++)
 		{
-			if(allChips[c][r] != allChips[c-1][r])
+			if(allChips[col][row] != allChips[col-1][row])
 			{
-			   r = 0;
+			   line = 0;
 			}
 			else
 			{
-			   r++;
+			   line++;
 			}
 			   
-			if(r == 4)
+			if(line == 4)
 			{
-				winner = allChips[][];
+				winner = allChips[col][row];
 				return(true);
 			}
-			s = s + allChips[c][r];
+			sum = sum + allChips[col][row];
 		}
-		if(s == 0)
+		if(sum == 0)
 		{
-			r = -1; //
+			row = -1; //
+		}
+	}
+	
+	for(let col = 0; col < 7; col++)
+	{
+		let row = 5;
+		let sum = 0;
+		let line = 0;
+		while(row >= 0)
+		{
+			if(allChips[col][row-1] != allChips[col][row])
+			{
+			   line = 0;
+			}
+			else
+			{
+			   line++;
+			}
+			
+			row--;
+			   
+			if(line == 4)
+			{
+				winner = allChips[col][row-1];
+				return(true);
+			}
+			s = s + allChips[col][row];
 		}
 	}
 	
