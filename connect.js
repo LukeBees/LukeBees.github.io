@@ -82,6 +82,7 @@ playerbutton.addEventListener("click", (e) => {
 		drawBoard();
 		turns = 0;
 		playertext.innerText = "Red Player, make your move";
+		playerinput.value = "";
 		side = 1;
 		isWin = false;
 	}
@@ -170,7 +171,7 @@ function checkWin()
 		}
 	}
 	
-	/*
+	
 	//check vertically
 	for(let col = 0; col < 7; col++)
 	{
@@ -195,14 +196,14 @@ function checkWin()
 			
 			row--;
 			   
-			if(line == 4)
+			if(line == 3)
 			{
 				winner = allChips[col][row-1];
 				return(true);
 			}
 		}
 	}
-	*/
+	
 	
 	
 	
