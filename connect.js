@@ -134,7 +134,6 @@ function isValid(c) //c represents the column where a spot is being added
 {
   if(c < 1 || c > 7)
   {
-    let r = 5;
     return(false);
   }  
   else
