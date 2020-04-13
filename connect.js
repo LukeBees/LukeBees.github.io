@@ -85,12 +85,9 @@ playerbutton.addEventListener("click", (e) => {
 		if(isValid(col)) //if the column the player enters is acceptable
 		{
 			let r = 5;
-			while(r >= 0)
+			while(allChips[col-1][r] != 0)
 			{
-				if(allChips[col-1][r] != 0)
-				{
-					r--;
-				}
+				r--;
 			}
 			allChips[col-1][r] = side;
 	
