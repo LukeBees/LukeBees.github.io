@@ -164,7 +164,7 @@ function checkWinHorizontal()
 			   
 			if(line >= 3)
 			{
-				winner = allChips[col][row];
+				winner = currentChip;
 				return(true);
 			}
 			sum = sum + allChips[col][row];
@@ -205,7 +205,7 @@ function checkWinVertical()
 			   
 			if(line >= 3)
 			{
-				winner = allChips[col][row];
+				winner = currentChip;
 				return(true);
 			}
 		}
@@ -238,6 +238,7 @@ function checkWinRightDiag()
 			
 			if(line >= 3)
 			{
+				winner = currentChip;
 				return(true);
 			}
 			curRow--;
@@ -273,6 +274,7 @@ function checkWinLeftDiag()
 			
 			if(line >= 3)
 			{
+				winner = currentChip;
 				return(true);
 			}
 			curRow--;
