@@ -169,9 +169,8 @@ function checkWin()
 	for(let col = 0; col < 7; col++)
 	{
 		let row = 5;
-		let sum = 0;
 		let line = 0;
-		while(row >= 0)
+		while(row > 0)
 		{
 			if(allChips[col][row-1] != allChips[col][row])
 			{
@@ -182,6 +181,11 @@ function checkWin()
 			   line++;
 			}
 			
+			if(allChips[col][row-1] == 0)
+			{
+				row == -1;
+			}
+			
 			row--;
 			   
 			if(line == 4)
@@ -189,7 +193,6 @@ function checkWin()
 				winner = allChips[col][row-1];
 				return(true);
 			}
-			s = s + allChips[col][row];
 		}
 	}
 	
