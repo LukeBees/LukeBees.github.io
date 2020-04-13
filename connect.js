@@ -100,7 +100,7 @@ playerbutton.addEventListener("click", (e) => {
 			
 			turns++;
 		
-			if(turns > 7)
+			if(turns > 6)
 			{
 				isWin = checkWin();
 			}
