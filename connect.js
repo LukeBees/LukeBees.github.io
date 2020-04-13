@@ -118,6 +118,7 @@ playerbutton.addEventListener("click", (e) => {
 			{
 				playertext.innerText = "Press button to play again";
 			}
+		}
 	}
 
 });
