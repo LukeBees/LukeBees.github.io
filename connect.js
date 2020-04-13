@@ -158,8 +158,6 @@ function checkWin()
 			   
 			if(line == 3)
 			{
-				console.log(col);
-				console.log(row);
 				winner = allChips[col][row];
 				return(true);
 			}
@@ -177,9 +175,9 @@ function checkWin()
 	{
 		let row = 5;
 		let line = 0;
-		while(row > 0)
+		let currentChip = allChips[col][row]
+		while(row > 0 || currentChip != 0)
 		{
-			let currentChip = allChips[col][row];
 			if(allChips[col][row-1] != currentChip)
 			{
 			   line = 0;
@@ -198,6 +196,8 @@ function checkWin()
 			   
 			if(line == 3)
 			{
+				console.log(col);
+				console.log(row);
 				winner = allChips[col][row-1];
 				return(true);
 			}
