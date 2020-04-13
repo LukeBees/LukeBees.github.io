@@ -218,8 +218,8 @@ function checkWinRightDiag()
 	
 	for(let i = 0; i < 6; i++)
 	{
-		let curRow = r[i];
-		let curCol = c[i];
+		let curRow = rows[i];
+		let curCol = cols[i];
 		let currentChip = allChips[curRow][curCol];
 		let line = 0;
 		while(curRow >= 0 && curCol <= 6)
@@ -252,8 +252,8 @@ function checkWinLeftDiag()
 	
 	for(let i = 0; i < 6; i++)
 	{
-		let curRow = r[i];
-		let curCol = c[i];
+		let curRow = rows[i];
+		let curCol = cols[i];
 		let currentChip = allChips[curRow][curCol];
 		let line = 0;
 		while(curRow >= 0 && curCol >= 0)
