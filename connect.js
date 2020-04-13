@@ -75,9 +75,13 @@ var side = 1;
 var isWin = false;
 
 playerbutton.addEventListener("click", (e) => {
-	if(isWin || turns == 42)
+	if(isWin || turns == 42) //reset the board in case a player wins or the board is full
 	{
 		resetBoard();
+		drawBoard();
+		turns = 0;
+		playertext.innerText = "Red Player, make your move";
+		side = 1;
 	}
 	else
 	{
