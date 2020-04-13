@@ -198,7 +198,7 @@ function checkWin()
 			{
 				console.log(col);
 				console.log(row);
-				winner = allChips[col][row-1];
+				winner = allChips[col][row];
 				return(true);
 			}
 		}
