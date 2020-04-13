@@ -144,11 +144,12 @@ function checkWin()
 		let line = 0;
 		for(let col = 1; col < 7; col++)
 		{
-			if(allChips[col][row] != allChips[col-1][row])
+			let currentChip = allChips[col][row]
+			if(currentChip == 0 || currentChip != allChips[col-1][row])
 			{
 			   line = 0;
 			}
-			else
+			else //currentChip == allChips[col-1][row] && currentChip != 0
 			{
 			   line++;
 			}
@@ -166,13 +167,16 @@ function checkWin()
 		}
 	}
 	
+	/*
+	//check vertically
 	for(let col = 0; col < 7; col++)
 	{
 		let row = 5;
 		let line = 0;
 		while(row > 0)
 		{
-			if(allChips[col][row-1] != allChips[col][row])
+			let currentChip == allChips[col][row]
+			if(allChips[col][row-1] != currentChip || currentChip == 0)
 			{
 			   line = 0;
 			}
@@ -195,6 +199,7 @@ function checkWin()
 			}
 		}
 	}
+	*/
 	
 	
 	
